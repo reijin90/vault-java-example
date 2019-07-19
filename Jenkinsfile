@@ -59,7 +59,8 @@ pipeline {
           export SECRET_ID=$(./vault write -field=secret_id -f auth/approle/role/java-example/secret-id)
           export VAULT_TOKEN=$(./vault write -field=token auth/approle/login role_id=${ROLE_ID} secret_id=${SECRET_ID})
           #keytool -import -trustcacerts -file ca.crt -alias CorrarelloCA -keystore cacerts -noprompt -keypass changeit -storepass changeit
-          java -D"javax.net.ssl.trustStore=./cacerts" -jar target/java-client-example-1.0-SNAPSHOT-jar-with-dependencies.jar 
+          #java -D"javax.net.ssl.trustStore=./cacerts" -jar target/java-client-example-1.0-SNAPSHOT-jar-with-dependencies.jar 
+          java -jar target/java-client-example-1.0-SNAPSHOT-jar-with-dependencies.jar 
         '''
         }
       }
