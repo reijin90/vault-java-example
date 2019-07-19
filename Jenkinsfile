@@ -49,7 +49,7 @@ pipeline {
     stage('Integration Tests') {
       steps {
       sh 'curl -o vault.zip https://releases.hashicorp.com/vault/1.1.3/vault_1.1.3_linux_amd64.zip ; yes | unzip vault.zip'
-        withCredentials([string(credentialsId: 'vault-access-token', variable: 'VAULT_TOKEN')]) {
+        withCredentials([string(credentialsId: 'vault-access-token-string', variable: 'VAULT_TOKEN')]) {
         sh '''
           set -x
           //curl https://raw.githubusercontent.com/ncorrare/vault-java-example/master/ca.crt > ca.crt
