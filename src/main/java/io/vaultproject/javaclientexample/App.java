@@ -27,9 +27,9 @@ public class App
         final Vault vault = new Vault(config);
         try {
         final String value = vault.logical()
-                       .read("kv1/secret/hello")
+                       .read("kv1/hello")
                        .getData().get("value");
-        System.out.format( "value key in secret/hello is " + value +"\n");
+        System.out.format( "value key in kv1/hello is " + value +"\n");
         } catch(VaultException e) {
           System.out.println("Exception thrown: " + e);
         }
