@@ -55,7 +55,7 @@ pipeline {
           #curl https://raw.githubusercontent.com/ncorrare/vault-java-example/master/ca.crt > ca.crt
           #export VAULT_CACERT=$(pwd)/ca.crt
           export ROLE_ID=67bbcf2a-f7fb-3b41-f57e-88a34d9253e7
-          export VAULT_ADDR=https://192.168.56.105:8200
+          export VAULT_ADDR=http://192.168.56.105:8200
           export SECRET_ID=$(./vault write -field=secret_id -f auth/approle/role/java-example/secret-id)
           export VAULT_TOKEN=$(./vault write -field=token auth/approle/login role_id=${ROLE_ID} secret_id=${SECRET_ID})
           #keytool -import -trustcacerts -file ca.crt -alias CorrarelloCA -keystore cacerts -noprompt -keypass changeit -storepass changeit
