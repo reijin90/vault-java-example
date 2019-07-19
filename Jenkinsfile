@@ -64,11 +64,11 @@ pipeline {
       }
     }
   }
-  post { 
-    always { 
-        cleanWs()
-    }
-  }
+  //post { 
+    //always { 
+    //    cleanWs()
+    //}
+  //}
   environment {
     mvnHome = 'maven-3.2.5'
   }
