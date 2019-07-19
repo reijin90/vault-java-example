@@ -4,6 +4,10 @@ def projectProperties = [
 properties(projectProperties)
 pipeline {
   agent any
+  //tools {
+      //maven 'maven-3.2.5'
+      //jdk 'jdk1780'
+  //}
   stages { 
     stage('Cleanup') {
       steps {
@@ -16,7 +20,7 @@ pipeline {
     stage('Test') {
       steps {
         withMaven(maven: 'maven-3.2.5') {
-          sh 'mvn test'
+          sh 'echo Crazy good test'
         }
         
       }
@@ -32,7 +36,7 @@ pipeline {
     stage('Package') {
       steps {
         withMaven(maven: 'maven-3.2.5') {
-          sh 'mvn package'
+          sh 'mvn package -U'
         }
         
       }
@@ -58,6 +62,11 @@ pipeline {
         '''
         }
       }
+    }
+  }
+  post { 
+    always { 
+        cleanWs()
     }
   }
   environment {
